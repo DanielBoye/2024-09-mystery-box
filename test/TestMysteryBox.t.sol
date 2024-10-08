@@ -16,8 +16,9 @@ contract MysteryBoxTest is Test {
         user1 = address(0x1);
         user2 = address(0x2);
 
+        vm.deal(owner, 100000 ether);
         vm.prank(owner);
-        mysteryBox = new MysteryBox();
+        mysteryBox = new MysteryBox{value: 10000 ether}();
         console.log("Reward Pool Length:", mysteryBox.getRewardPool().length);
     }
 
